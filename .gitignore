@@ -64,7 +64,6 @@ data/db
 .pytest_cache
 .vscode/launch.json
 .vscode/settings.json
-.env.stage
 .flake8
 celerybeat.pid
 before_upgrade.txt
