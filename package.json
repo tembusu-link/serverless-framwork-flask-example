@@ -4,8 +4,10 @@
   "description": "Example of a Python Flask API service with traditional Serverless Framework",
   "author": "",
   "devDependencies": {
+    "serverless-associate-waf": "^1.2.1",
     "serverless-domain-manager": "^6.0.3",
     "serverless-dotenv-plugin": "^4.0.1",
+    "serverless-plugin-lambda-insights": "^1.5.0",
     "serverless-prune-plugin": "^2.0.1",
     "serverless-python-requirements": "^5.1.0",
     "serverless-wsgi": "^3.0.0"
