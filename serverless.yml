@@ -16,9 +16,10 @@ provider:
   architecture: arm64
 
 custom:
-  apiDomain: ${env:SUBDOMAIN}.tembusu.link  # change by your custom domain
-  hostedZoneName: tembusu.link  # your domain Route 53 hosted zone name
-  certificateNVirginaArn: 'arn:aws:acm:us-east-1:355764785838:certificate/77bff5cb-03c7-4b11-ba8e-312e6f49a31f'
+  urlDomain:
+    apiDomain: ${env:SUBDOMAIN}.tembusu.link  # change by your custom domain
+    hostedZoneName: tembusu.link.  # your domain Route 53 hosted zone name
+    certificateNVirginaArn: 'arn:aws:acm:us-east-1:355764785838:certificate/77bff5cb-03c7-4b11-ba8e-312e6f49a31f'
   wsgi:
     app: app.app
   prune:
@@ -33,8 +34,6 @@ functions:
     layers:
       - arn:aws:lambda:us-east-1:580247275435:layer:LambdaInsightsExtension-Arm64:2
     url: true
-    #events:
-    #  - httpApi: '*'
   cronJob:
     handler: app.hello_cron
     timeout: 300
@@ -52,7 +51,6 @@ functions:
 plugins:
   - serverless-wsgi
   - serverless-python-requirements
-  #- serverless-domain-manager
   - serverless-prune-plugin
   - serverless-dotenv-plugin
-  - ../serverless-aws-function-url-custom-domain
+  - serverless-aws-function-url-custom-domain
