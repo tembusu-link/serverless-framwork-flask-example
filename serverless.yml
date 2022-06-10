@@ -19,9 +19,9 @@ custom:
   urlDomain:
     apiDomain: ${env:SUBDOMAIN}.tembusu.link  # change by your custom domain
     hostedZoneName: tembusu.link.  # your domain Route 53 hosted zone name
-    certificateNVirginaArn: 'arn:aws:acm:us-east-1:355764785838:certificate/77bff5cb-03c7-4b11-ba8e-312e6f49a31f'
+    certificateArn: 'arn:aws:acm:us-east-1:355764785838:certificate/77bff5cb-03c7-4b11-ba8e-312e6f49a31f'
   wsgi:
-    app: app.app
+    app: serverless.app
   prune:
     automatic: true
     number: 3
@@ -35,11 +35,11 @@ functions:
       - arn:aws:lambda:us-east-1:580247275435:layer:LambdaInsightsExtension-Arm64:2
     url: true
   cronJob:
-    handler: app.hello_cron
+    handler: async_tasks.hello_cron
     timeout: 300
     events:
       - schedule:
-          name: cron-say-hello
+          name: cron-say-hello-${opt:stage, 'dev'}
           description: a description of my scheduled event's purpose
           # Can also be an array of rate/cron expressions
           rate: rate(20 minutes)
