@@ -9,7 +9,6 @@ repos:
     -   id: check-yaml
     -   id: check-added-large-files
     -   id: check-json
-    -   id: detect-aws-credentials
     -   id: detect-private-key
 -   repo: https://github.com/asottile/pyupgrade
     rev: v2.37.3
