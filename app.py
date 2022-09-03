@@ -1,5 +1,4 @@
-from flask import Flask, jsonify, make_response, current_app
-
+from flask import Flask, current_app, jsonify, make_response
 
 __all__ = ["create_app"]
 
