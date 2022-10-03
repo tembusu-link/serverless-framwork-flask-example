@@ -12,8 +12,11 @@ def create_app(config=None, app_name=None, blueprints=None):
 
     @app.route("/hello")
     def hello():
-        current_app.logger.info("Hello from path!")
-        return jsonify(message="Hello from path!")
+        import os
+
+        region = os.getenv("REGION")
+        current_app.logger.info(f"Hello from path! {region=}")
+        return jsonify(message=f"Hello from path! {region=}")
 
     @app.errorhandler(404)
     def resource_not_found(e):
