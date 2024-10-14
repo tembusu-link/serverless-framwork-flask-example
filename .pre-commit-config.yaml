@@ -2,7 +2,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v5.0.0
     hooks:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
@@ -11,21 +11,21 @@ repos:
     -   id: check-json
     -   id: detect-private-key
 -   repo: https://github.com/asottile/pyupgrade
-    rev: v3.3.0
+    rev: v3.18.0
     hooks:
     - id: pyupgrade
       args: [ --py37-plus ]
 - repo: https://github.com/pycqa/isort
-  rev: 5.10.1
+  rev: 5.13.2
   hooks:
     - id: isort
       name: isort (python)
 -   repo: https://github.com/psf/black
-    rev: 22.10.0
+    rev: 24.10.0
     hooks:
     -   id: black
 - repo: https://github.com/hadialqattan/pycln
-  rev: v2.1.2 # Possible releases: https://github.com/hadialqattan/pycln/releases
+  rev: v2.4.0 # Possible releases: https://github.com/hadialqattan/pycln/releases
   hooks:
     - id: pycln
       args: [ --all ]
